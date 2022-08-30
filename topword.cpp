@@ -3,7 +3,6 @@
 #include <string>
 #include <vector>
 #include <map>
-#include <cctype>
 #include <sstream>
 #include <algorithm> 
 
@@ -22,6 +21,7 @@ vector<string> getMostRepeatedWords(map<string, int> wordCounterMap, int highest
 void createOutputFile(string outputFileName, vector<string> getMostRepeatedWords, int highestWordFrequency);
 bool compareStrings(string a, string b);
 
+//Loops were used to process the data. A hashmap works as a counter of the words frequency
 int main(int argc, char* argv[]) {
     
     fileNames parameters;
@@ -109,28 +109,6 @@ map<string, int> countWordsOccurrences(vector<string> words) {
    }
 
    return wordCounterMap;
-    // map <string, int> wordsCounterMap; //Map words to find repetitions
-    // int mostRepetitions = 0;
-
-    // //loop through words vector to obtain all instances of each word and increment counter accordingly
-    // for (int i = 0; i < words.size(); i++) {
-    //     //if the word is not an empty string
-    //     if(words[i].size() > 0) {
-    //         //increment counter for word
-    //         wordsCounterMap[words[i]]++;
-    //         //update most word repetitions
-    //         if(wordsCounterMap[words[i]] > mostRepetitions) mostRepetitions = wordsCounterMap[words[i]];
-    //     }
-    // }
-
-    // //Find words that contains the most repetitions
-    // for(auto &word : wordsCounterMap) {
-    //     if(word.second == mostRepetitions) {
-    //         mostRepeatedWords->push_back(word.first);
-    //     }
-    // }
-
-    // return mostRepetitions;
 }
 
 int getHighestWordFrequency(map<string, int> wordCounterMap) {
@@ -165,4 +143,3 @@ void createOutputFile(string outputFileName, vector<string> mostRepeatedWords, i
 bool compareStrings(string a, string b) {
     return a<b;
 }
-
